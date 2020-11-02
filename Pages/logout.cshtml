@@ -1,0 +1,51 @@
+﻿@page
+@model Kai_Stranka.Pages.logoutModel
+@{
+}
+
+<form method="post" style="margin-bottom:100%; margin-left:10%">
+
+    <input type="submit" id="btn" name="btn" value="Odhlásiť" style="width:100%" />
+
+
+
+</form>
+<script>
+    $("#btn").submit();
+
+</script>
+
+<script>
+    $(function () {
+        $(".c_h").click(function (e) {
+            if ($(".chat_container").is(":visible")) {
+                $(".c_h .right_c .mini").text("+")
+            } else {
+                $(".c_h .right_c .mini").text("-")
+            }
+            $(".chat_container").slideToggle("slow");
+            return false
+        });
+    });
+</script>
+<div class="l_c_h" style="margin-right:10%; width:400px; ">
+    <div class="c_h">
+        <div class="left_c">
+            <div class="left right_c left_icons">
+                <a href="#" class="mini" style="font-size:23px;">+</a>
+            </div>
+            <div class="left center_icons">
+                <!--center_icons-->
+                Live help!
+            </div><!--end center_icons-->
+        </div>
+        <div class="right right_c" style="width:35px;">
+            <a href="#" class="logout" title="End chat" name="" style="display:none;"><img src="chat/logout.png"></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="chat_container" style="display: none;">
+        <iframe src='https://webchat.botframework.com/embed/KaiBotComposer1?s=HLa4ssqlB_M.J5eOR3yMoAjSnk1z0EONHLVUuoIvlfupSj-uosKd3ok' style='width:auto; height: 500px;'></iframe>
+
+    </div>
+</div>

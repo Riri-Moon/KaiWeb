@@ -1,0 +1,52 @@
+﻿@page
+@model Kai_Stranka.Pages.PostsModel
+@{
+}
+
+@{
+    var user = LoginModel.ReturnStatus();
+    if (user.Logged && user.IpAddress == HttpContext.Connection.RemoteIpAddress.ToString())
+    {
+        <form method="post" style="margin-left:20%">
+            <div style="margin-top:30px">
+
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"></span>
+                </div>
+                <input type="text" asp-for="@Model.ViewData["Meno"]" class="form-control" name="Name" placeholder="Meno" aria-label="Meno" aria-describedby="basic-addon1" style="max-width:300px">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" asp-for="@Model.ViewData["Title"]" class="form-control" name="Title" placeholder="Názov" aria-label="Title" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"></span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Text</span>
+                </div>
+                <textarea asp-for="@Model.ViewData["Text"]" class="form-control" name="Text" aria-label="Text"></textarea>
+            </div>
+
+            <button type="submit" class="btn-success btn-block btn-lg" style="margin-top:30px">Pridať</button>
+        </form>
+        <div style="height:500px">
+
+        </div>
+
+    }
+
+    else
+    {
+
+        <script>
+            alert("Musíte byť prihlásený na pridávanie nových príspevkov."); 
+        </script>
+        <div style="margin-bottom:800px"></div>
+    }
+}
+=

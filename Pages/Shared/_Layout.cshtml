@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>@ViewData["Title"] - Kai_Stranka</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/site.css" />
+
+
+    <style>
+        .site-footer {
+            font-family: 'Nunito Sans';
+            background-color: #26272b;
+            padding: 45px 0 20px;
+            font-size: 15px;
+            line-height: 24px;
+            color: #737373;
+        }
+
+            .site-footer hr {
+                border-top-color: #bbb;
+                opacity: 0.5
+            }
+
+                .site-footer hr.small {
+                    margin: 20px 0
+                }
+
+            .site-footer h6 {
+                color: #fff;
+                font-size: 16px;
+                text-transform: uppercase;
+                margin-top: 5px;
+                letter-spacing: 2px
+            }
+
+            .site-footer a {
+                color: #737373;
+            }
+
+                .site-footer a:hover {
+                    color: #3366cc;
+                    text-decoration: none;
+                }
+
+        .footer-links {
+            padding-left: 0;
+            list-style: none
+        }
+
+            .footer-links li {
+                display: block
+            }
+
+            .footer-links a {
+                color: #737373
+            }
+
+                .footer-links a:active, .footer-links a:focus, .footer-links a:hover {
+                    color: #3366cc;
+                    text-decoration: none;
+                }
+
+            .footer-links.inline li {
+                display: inline-block
+            }
+
+        .site-footer .social-icons {
+            text-align: right
+        }
+
+            .site-footer .social-icons a {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                margin-left: 6px;
+                margin-right: 0;
+                border-radius: 100%;
+                background-color: #33353d
+            }
+
+        .site-footer .copyright-text, .site-footer .social-icons {
+            text-align: center
+        }
+
+        .social-icons {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none
+        }
+
+            .social-icons li {
+                display: inline-block;
+                margin-bottom: 4px
+            }
+
+                .social-icons li.title {
+                    margin-right: 15px;
+                    text-transform: uppercase;
+                    color: #96a2b2;
+                    font-weight: 700;
+                    font-size: 13px
+                }
+
+            .social-icons a {
+                background-color: #eceeef;
+                color: #818a91;
+                font-size: 16px;
+                display: inline-block;
+                line-height: 44px;
+                width: 44px;
+                height: 44px;
+                text-align: center;
+                margin-right: 8px;
+                border-radius: 100%;
+                -webkit-transition: all .2s linear;
+                -o-transition: all .2s linear;
+                transition: all .2s linear
+            }
+
+                .social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+                    color: #fff;
+                    background-color: #29aafe
+                }
+
+            .social-icons.size-sm a {
+                line-height: 34px;
+                height: 34px;
+                width: 34px;
+                font-size: 14px
+            }
+
+            .social-icons a.facebook:hover {
+                background-color: #3b5998
+            }
+
+            .social-icons a.twitter:hover {
+                background-color: #00aced
+            }
+
+            .social-icons a.linkedin:hover {
+                background-color: #007bb6
+            }
+
+            .social-icons a.dribbble:hover {
+                background-color: #ea4c89
+            }
+    </style>
+</head>
+
+
+<body style="background-color:#F7F7F7;">
+    <div id="mySidenav" class="sidenav" style="width:230px; margin-right:10%; position:fixed">
+        <a href="/Index">
+            <img src="~/img/kai_logo.png" style="height:200px;width:200px; margin-bottom:20px" />
+        </a>
+        <button class="dropdown-btn">
+            Študenti
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">link 1</a>
+            <a href="#">link 2</a>
+            <a href="#">link 3</a>
+        </div>
+        <button class="dropdown-btn">
+            Zamestnanci
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">link 1</a>
+            <a href="#">link 2</a>
+            <a href="#">link 3</a>
+        </div>
+        <a href="#">O škole</a>
+        <a href="#">Výskum</a>
+        <a id="loginBtn" href="/Login">Prihlásiť</a>
+        <a id="contactForm" href="#">Kontaktujte nás</a>
+        @{
+
+            var user = LoginModel.ReturnStatus();
+            if (user.Logged && user.IpAddress == this.Context.Connection.RemoteIpAddress.ToString())
+            {
+                <a href="~/posts">Pridať príspevok</a>
+                <a href="~/logout">Odhlásiť</a>
+                <script>
+                    $("#loginBtn").remove();
+                </script>
+
+            }
+
+        }
+
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <a href="https://www.facebook.com/KatedraAplikovanejInformatiky/" target="_blank">
+                            <img src="~/IMG/fb.png" style="width:50px;height:50px" />
+                        </a>
+                    </td>
+                    <td style="margin-left:-50%">
+                        <a href="https://www.instagram.com/kaifpvucm/" target="_blank">
+                            <img src="~/IMG/insta.png" style="width:50px; height:50px" />
+                        </a>
+                    </td>
+
+                    <td style="margin-left:-50%">
+                        <a href="https://kai.fpv.ucm.sk/moodle/login/" target="_blank">
+                            <img src="~/IMG/moodle.png" style="width:50px; height:50px" />
+                        </a>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td style="margin-left:-50%">
+                        <a href="https://ais2.ucm.sk/" target="_blank">
+                            <img src="~/IMG/ais.png" style="width:50px; height:50px" />
+                        </a>
+                    </td>
+                    <td style="margin-left:-50%">
+                        <a href="https://ucm.sk" target="_blank">
+                            <img src="~/IMG/logoUcm.png" style="width:50px; height:50px" />
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="modal show" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>prihlásenie do účtu</h1><br>
+                <form>
+                    <input type="text" name="user" placeholder="username">
+                    <input type="password" name="pass" placeholder="password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="login">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    }
+
+
+
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    <script>
+        $(function () {
+            $(".c_h").click(function (e) {
+                if ($(".chat_container").is(":visible")) {
+                    $(".c_h .right_c .mini").text("+")
+                } else {
+                    $(".c_h .right_c .mini").text("-")
+                }
+                $(".chat_container").slideToggle("slow");
+                return false
+            });
+        });
+    </script>
+    <div class="l_c_h" style="margin-right:15%; width:150px; margin-bottom:5%">
+        <div class="c_h">
+            <div class="left_c">
+                <div class="left right_c left_icons">
+                    <a href="#" class="mini" style="font-size:23px;">+</a>
+                </div>
+                <div class="left center_icons">
+                    <!--center_icons-->
+                    Live help!
+                </div><!--end center_icons-->
+            </div>
+            <div class="right right_c" style="width:35px;">
+                <a href="#" class="logout" title="End chat" name="" style="display:none;"><img src="chat/logout.png"></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="chat_container" style="display: none;">
+            <iframe src='https://webchat.botframework.com/embed/KaiBotComposer1?s=HLa4ssqlB_M.J5eOR3yMoAjSnk1z0EONHLVUuoIvlfupSj-uosKd3ok' style='width:auto; height: 500px;'></iframe>
+
+        </div>
+    </div>
+
+    <div class="container" style="background-color:#F7F7F7">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<iframe src='https://webchat.botframework.com/embed/KaiBotComposer1?s=HLa4ssqlB_M.J5eOR3yMoAjSnk1z0EONHLVUuoIvlfupSj-uosKd3ok'
+        style='width:auto; ;height: auto;'></iframe>*@
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>O katedre</h6>
+                    <p class="text-justify">
+                        Katedra aplikovanej informatiky <br />
+                        Sa zaujíma najmä.........
+                    </p>
+                </div>
+
+                <div class="">
+                    <h6>Kontakt</h6>
+                    <ul class="footer-links">
+                        <li>
+                            Katedra aplikovanej informatiky
+                        </li>
+                        <li>Študijné oddelenie Fakulty prírodných vied</li>
+                        <li>Ing. Daniela Šimková</li>
+                        <li>Kancelária: 309 (Nám. J. Herdu 2, 917 01 Trnava, 3. poschodie)</li>
+                        <li>Telefón: 033 5565 316</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
